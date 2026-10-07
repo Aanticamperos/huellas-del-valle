@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sistema de información para agendamiento de citas - Clínica Veterinaria Huellas del Valle S.A.S." />
+  <title>Huellas del Valle | Agendamiento</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">🐾</div>
+      <div>
+        <h1>Huellas del Valle</h1>
+        <p>Agendamiento de citas veterinarias</p>
+      </div>
+    </div>
+    <div class="status-pill">Sistema en línea</div>
+  </header>
+
+  <main class="container">
+    <section class="hero-card">
+      <div>
+        <span class="eyebrow">Clínica Veterinaria Huellas del Valle S.A.S.</span>
+        <h2>Agenda la cita de tu mascota</h2>
+        <p>Consulta la disponibilidad y recibe inmediatamente el resultado de la solicitud.</p>
+      </div>
+      <div class="hero-icon">🐶</div>
+    </section>
+
+    <nav class="tabs" aria-label="Vistas del sistema">
+      <button class="tab active" data-view="agendar">Agendar cita</button>
+      <button class="tab" data-view="agenda">Agenda del día</button>
+    </nav>
+
+    <section id="view-agendar" class="view active-view">
+      <div class="panel-grid">
+        <section class="card form-card">
+          <div class="card-heading">
+            <div>
+              <h3>Nueva solicitud</h3>
+              <p>Completa los datos y envía la solicitud.</p>
+            </div>
+          </div>
+
+          <form id="appointment-form" novalidate>
+            <div class="form-grid">
+              <label>
+                Propietario
+                <input type="text" id="propietario" name="propietario" required maxlength="80" placeholder="Nombre completo" />
+              </label>
+
+              <label>
+                Correo electrónico
+                <input type="email" id="correo" name="correo" required maxlength="120" placeholder="correo@ejemplo.com" />
+              </label>
+
+              <label>
+                Mascota
+                <input type="text" id="mascota" name="mascota" required maxlength="60" placeholder="Nombre de la mascota" />
+              </label>
+
+              <label>
+                Especie
+                <select id="especie" name="especie" required>
+                  <option value="">Selecciona</option>
+                  <option value="perro">Perro</option>
+                  <option value="gato">Gato</option>
+                </select>
+              </label>
+
+              <label>
+                Servicio
+                <select id="servicio" name="servicio" required>
+                  <option value="">Selecciona</option>
+                  <option value="Consulta general">Consulta general</option>
+                  <option value="Vacunación">Vacunación</option>
+                  <option value="Baño">Baño</option>
+                  <option value="Ecografía">Ecografía</option>
+                </select>
+              </label>
+
+              <label>
+                Fecha
+                <input type="date" id="fecha" name="fecha" required />
+              </label>
+
+              <label>
+                Hora
+                <select id="hora" name="hora" required>
+                  <option value="">Selecciona</option>
+                  <option value="08:00">08:00</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="primary-btn" id="submit-btn">Agendar cita</button>
+              <button type="reset" class="ghost-btn" id="reset-btn">Limpiar</button>
+            </div>
+          </form>
+        </section>
+
+        <aside class="card result-card" id="result-card" aria-live="polite">
+          <div class="result-empty" id="result-empty">
+            <div class="result-symbol">⌁</div>
+            <h3>Resultado de la solicitud</h3>
+            <p>Aquí aparecerá la respuesta del sistema después de enviar la cita.</p>
+          </div>
+
+          <div class="result-content hidden" id="result-content">
+            <div class="result-label">Respuesta del proceso</div>
+            <div class="result-status" id="result-status">—</div>
+            <h3 id="result-title">Solicitud procesada</h3>
+            <p id="result-message">—</p>
+
+            <div class="result-details" id="result-details">
+              <div><span>Fecha</span><strong id="detail-fecha">—</strong></div>
+              <div><span>Hora</span><strong id="detail-hora">—</strong></div>
+              <div><span>Libres</span><strong id="detail-libres">—</strong></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="view-agenda" class="view">
+      <section class="card">
+        <div class="agenda-toolbar">
+          <div>
+            <h3>Agenda del día</h3>
+            <p>Consulta las citas registradas y su estado.</p>
+          </div>
+          <div class="date-filter">
+            <label for="agenda-date">Fecha</label>
+            <input type="date" id="agenda-date" />
+            <button class="ghost-btn" id="refresh-agenda">Actualizar</button>
+          </div>
+        </div>
+
+        <div id="agenda-state" class="info-box">Cargando agenda…</div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Hora</th>
+                <th>Propietario</th>
+                <th>Mascota</th>
+                <th>Especie</th>
+                <th>Servicio</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="agenda-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    Sistema académico · Parcial 1 · Agendamiento de citas
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
