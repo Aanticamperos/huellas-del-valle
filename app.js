@@ -3,7 +3,7 @@
 // Reemplazar estos valores cuando creemos el webhook y la hoja.
 // =============================================================
 const CONFIG = {
-  MAKE_WEBHOOK_URL: "REEMPLAZAR_CON_URL_DEL_WEBHOOK_DE_MAKE",
+  MAKE_WEBHOOK_URL: "https://hook.us2.make.com/chqwajoneb23k0z7b6w8dif73mqo6vxd",
   CITAS_CSV_URL: "REEMPLAZAR_CON_URL_CSV_DE_LA_HOJA_CITAS",
 };
 
