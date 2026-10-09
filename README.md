@@ -7,14 +7,6 @@ Interfaz propia para el Parcial 1: agendamiento de citas de la Clínica Veterina
 - `styles.css`: diseño visual.
 - `app.js`: envío del formulario al webhook de Make y lectura de la hoja Citas.
 
-## Conexiones pendientes
-En `app.js`, cambiar:
-
-- `MAKE_WEBHOOK_URL`: URL del Custom Webhook del Escenario 1 de Make.
-- `CITAS_CSV_URL`: URL pública CSV de la hoja `Citas`.
-
-No guardar tokens, contraseñas o claves en este repositorio.
-
 ## Campos enviados al webhook
 `propietario`, `correo`, `mascota`, `especie`, `servicio`, `fecha`, `hora`.
 
