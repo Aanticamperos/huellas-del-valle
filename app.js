@@ -4,7 +4,7 @@
 // =============================================================
 const CONFIG = {
   MAKE_WEBHOOK_URL: "https://hook.us2.make.com/chqwajoneb23k0z7b6w8dif73mqo6vxd",
-  CITAS_CSV_URL: "REEMPLAZAR_CON_URL_CSV_DE_LA_HOJA_CITAS",
+  CITAS_CSV_URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTjUxLokj3masUXmrmUWJo_e1gbHADDc6sSEIISG126MY-M3qRxAOmD9sSoaMP_5UYbLftaiwts6u3X/pub?gid=1086141472&single=true&output=csv",
 };
 
 const form = document.getElementById("appointment-form");
